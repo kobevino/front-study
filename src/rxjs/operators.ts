@@ -10,8 +10,6 @@ import {
   debounceTime,
   mapTo,
   mergeAll,
-  toArray,
-  switchMap,
 } from 'rxjs/operators';
 
 /**
@@ -83,6 +81,6 @@ from([1, 2, 3])
   .pipe(
     // map((v) => fakeFetch(v)),
     // mergeAll()
-    switchMap((v) => fakeFetch(v)),
+    mergeMap((v) => fakeFetch(v))
   )
   .subscribe(console.log);
